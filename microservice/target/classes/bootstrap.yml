@@ -1,0 +1,31 @@
+
+spring:
+    application:
+        name: thelibrary-ms-loan
+    profiles:
+        active: local
+    cloud:
+        config:
+            uri: http://localhost:8888
+            profile: local, prod
+        discovery:
+            enabled: true
+    data:
+        rest:
+            return-body-on-create: true
+            return-body-on-update: true
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+
+server:
+    port: 8050
+
