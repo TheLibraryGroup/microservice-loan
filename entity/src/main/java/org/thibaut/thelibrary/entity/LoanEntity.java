@@ -1,11 +1,9 @@
 package org.thibaut.thelibrary.entity;
 
 import lombok.*;
-import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "loan")
@@ -18,21 +16,26 @@ import java.time.LocalDate;
 public class LoanEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-//	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-	private DateTime startDate;
+//	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSz")
+	private DateTime startDate; /*IMPORTANT: use 'timestamp' type in postgresql for great compatibility*/
 
 	private boolean returned;
 
-//	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	private DateTime initialEndDate;
-//	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+
 	private DateTime extendedEndDate;
 
 	private Long bookId;
 
+	@Transient
+	private BookEntity book;
+
 	private Long userId;
+
+	@Transient
+	private UserEntity user;
 
 }

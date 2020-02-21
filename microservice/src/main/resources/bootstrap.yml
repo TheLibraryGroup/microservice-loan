@@ -14,11 +14,21 @@ spring:
         rest:
             return-body-on-create: true
             return-body-on-update: true
-
+    jpa:
+        properties:
+            jadira.usertype.autoRegisterUserTypes: true
+    rabbitmq:
+        host: localhost
+        username: user
+        password: user
 eureka:
     client:
         serviceUrl:
             defaultZone: http://localhost:8761/eureka/
+
+feign:
+    hystrix:
+        enabled: true
 
 management:
     endpoints:

@@ -3,6 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.17">
     <root id="1">
       <ServerVersion>10.4</ServerVersion>
+      <StartupTime>1581688745</StartupTime>
     </root>
     <database id="2" parent="1" name="db_contacts">
       <ObjectId>170670</ObjectId>
@@ -16,24 +17,26 @@
       <ObjectId>195692</ObjectId>
       <Owner>admin_pdt</Owner>
     </database>
-    <database id="5" parent="1" name="db_thelibrary">
-      <ObjectId>196222</ObjectId>
-      <Owner>admin_tl</Owner>
-    </database>
-    <database id="6" parent="1" name="db_wtc">
+    <database id="5" parent="1" name="db_wtc">
       <ObjectId>153304</ObjectId>
       <Owner>admin_wtc</Owner>
     </database>
-    <database id="7" parent="1" name="postgres">
+    <database id="6" parent="1" name="postgres">
       <ObjectId>12938</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
     </database>
+    <database id="7" parent="1" name="thelibrary_book">
+      <ObjectId>196222</ObjectId>
+      <Owner>admin_tl</Owner>
+    </database>
     <database id="8" parent="1" name="thelibrary_loan">
       <ObjectId>196963</ObjectId>
       <Owner>admin_tl</Owner>
-      <IntrospectionStateNumber>60637</IntrospectionStateNumber>
+      <IntrospectionStateNumber>60694</IntrospectionStateNumber>
       <Current>1</Current>
+      <Relations>sequence|table|197007|197009|1
+</Relations>
     </database>
     <role id="9" parent="1" name="admin_ct">
       <ObjectId>170669</ObjectId>
@@ -108,7 +111,7 @@
       <ObjectId>196964</ObjectId>
       <StateNumber>60635</StateNumber>
       <Owner>admin_tl</Owner>
-      <IntrospectionStateNumber>60638</IntrospectionStateNumber>
+      <IntrospectionStateNumber>60695</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <schema id="23" parent="8" name="pg_catalog">
@@ -173,5 +176,85 @@
       <SchemaName>pg_catalog</SchemaName>
       <SchemaId>11</SchemaId>
     </extension>
+    <sequence id="31" parent="22" name="hibernate_sequence">
+      <ObjectId>196970</ObjectId>
+      <StateNumber>60643</StateNumber>
+      <Owner>admin_tl</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>bigint</DataType>
+    </sequence>
+    <sequence id="32" parent="22" name="loan_id_seq">
+      <ObjectId>197007</ObjectId>
+      <StateNumber>60692</StateNumber>
+      <Owner>admin_tl</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>bigint</DataType>
+    </sequence>
+    <table id="33" parent="22" name="loan">
+      <ObjectId>197009</ObjectId>
+      <Owner>admin_tl</Owner>
+      <StateNumber>60692</StateNumber>
+    </table>
+    <column id="34" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>60692</StateNumber>
+      <DefaultExpression>nextval(&apos;loan_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="35" parent="33" name="book_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>60692</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="36" parent="33" name="extended_end_date">
+      <Position>3</Position>
+      <DataType>timestamp|0s</DataType>
+      <StateNumber>60692</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="37" parent="33" name="initial_end_date">
+      <Position>4</Position>
+      <DataType>timestamp|0s</DataType>
+      <StateNumber>60692</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="38" parent="33" name="returned">
+      <Position>5</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>60692</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="39" parent="33" name="start_date">
+      <Position>6</Position>
+      <DataType>timestamp|0s</DataType>
+      <StateNumber>60692</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="40" parent="33" name="user_id">
+      <Position>7</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>60692</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="41" parent="33" name="loan_pkey">
+      <ObjectId>197013</ObjectId>
+      <StateNumber>60692</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="42" parent="33" name="loan_pkey">
+      <ObjectId>197014</ObjectId>
+      <StateNumber>60692</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>loan_pkey</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

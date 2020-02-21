@@ -9,6 +9,7 @@ import org.joda.time.DateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@ToString
 public class LoanDTO {
 
 	private Long id;
@@ -21,5 +22,7 @@ public class LoanDTO {
 	private Long bookId;
 
 	private Long userId;
+
+	private BookDTO book;
 
 }

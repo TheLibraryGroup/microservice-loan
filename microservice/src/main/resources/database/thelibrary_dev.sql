@@ -1,9 +1,9 @@
 CREATE TABLE local.loan (
                           id bigint NOT NULL,
-                          extended_end_date date,
-                          initial_end_date date,
+                          extended_end_date bytea,
+                          initial_end_date bytea,
                           returned boolean NOT NULL,
-                          start_date date,
+                          start_date bytea,
                           book_id bigint,
                           user_id bigint
 );

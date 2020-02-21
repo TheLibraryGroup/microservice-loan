@@ -47,7 +47,6 @@
 
 		<keycloak.version>8.0.1</keycloak.version>
 
-		<joda-time.version>2.10.5</joda-time.version>
 		<mapstruct.version>1.3.1.Final</mapstruct.version>
 		<projectlombok.version>1.18.0</projectlombok.version>
 
@@ -76,16 +75,15 @@
 				<artifactId>microservice</artifactId>
 				<version>${microservice.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
-			<dependency>
-				<groupId>joda-time</groupId>
-				<artifactId>joda-time</artifactId>
-				<version>${joda-time.version}</version>
-			</dependency>
 			<dependency>
 				<groupId>org.mapstruct</groupId>
 				<artifactId>mapstruct</artifactId>
 				<version>${mapstruct.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jadira.usertype</groupId>
+				<artifactId>usertype.extended</artifactId>
+				<version>5.0.0.GA</version>
 			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
@@ -109,6 +107,7 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
 
 			<dependency>
 				<groupId>org.keycloak.bom</groupId>
@@ -160,9 +159,9 @@
 	<profiles>
 		<profile>
 			<id>local</id>
-<!--			<activation>-->
-<!--				<activeByDefault>true</activeByDefault>-->
-<!--			</activation>-->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<properties>
 				<spring.profiles.active>local</spring.profiles.active>
 			</properties>
@@ -237,5 +236,16 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 </project>

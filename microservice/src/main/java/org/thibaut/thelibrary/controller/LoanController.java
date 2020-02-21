@@ -1,40 +1,46 @@
 package org.thibaut.thelibrary.controller;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.thibaut.thelibrary.service.BookService;
+import org.thibaut.thelibrary.dto.LoanDTO;
+import org.thibaut.thelibrary.entity.LoanEntity;
 import org.thibaut.thelibrary.exception.ResourceNotFoundException;
+import org.thibaut.thelibrary.restrepository.LoanRestRepository;
+import org.thibaut.thelibrary.service.LoanService;
 import org.thibaut.thelibrary.utils.RestPreconditions;
 import org.thibaut.thelibrary.utils.SingleResourceRetrievedEvent;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin("*")
+@AllArgsConstructor
 public class LoanController {
 
+	private LoanRestRepository loanRepository;
+	private BookService bookService;
+	private LoanService loanService;
 	private ApplicationEventPublisher eventPublisher;
 
-	public LoanController( ApplicationEventPublisher eventPublisher ) {
-		this.eventPublisher = eventPublisher;
+	@GetMapping("/fullLoan/{id}")
+	public LoanDTO getLoan( @PathVariable("id") Long id, HttpServletResponse response){
+		try {
+			final LoanDTO byId = loanService.findById( id );
+			LoanDTO loanDTO = RestPreconditions.checkFound( byId );
+			eventPublisher.publishEvent( new SingleResourceRetrievedEvent(this, response) );
+			return loanDTO;
+		}
+		catch ( ResourceNotFoundException ex ){
+			throw new ResponseStatusException( HttpStatus.NO_CONTENT, "Book not found", ex );
+		}
 	}
-
-
-//	@GetMapping("/book/{id}")
-//	public BookDTO bookDTO( @PathVariable("id") Long id, HttpServletResponse response){
-//		try {
-//			BookDTO bookDTO = RestPreconditions.checkFound( bookService.getBookById( id ) );
-//			eventPublisher.publishEvent( new SingleResourceRetrievedEvent(this, response) );
-//			return bookDTO;
-//		}
-//		catch ( ResourceNotFoundException ex ){
-//			throw new ResponseStatusException( HttpStatus.NO_CONTENT, "Book not found", ex );
-//		}
-//	}
 //
 //
 //	@GetMapping("/books")
