@@ -1,11 +1,4 @@
-D:\Workspace\OpenclassroomsProjects\TheLibrary\TheLibraryGroup\TheLibrary-backend\microservice-loan\entity\src\main\java\org\thibaut\thelibrary\dto\BookLibraryIdDTO.java
-D:\Workspace\OpenclassroomsProjects\TheLibrary\TheLibraryGroup\TheLibrary-backend\microservice-loan\entity\src\main\java\org\thibaut\thelibrary\entity\projection\LoanProjection.java
-D:\Workspace\OpenclassroomsProjects\TheLibrary\TheLibraryGroup\TheLibrary-backend\microservice-loan\entity\src\main\java\org\thibaut\thelibrary\dto\BooksOfLibrariesDTO.java
-D:\Workspace\OpenclassroomsProjects\TheLibrary\TheLibraryGroup\TheLibrary-backend\microservice-loan\entity\src\main\java\org\thibaut\thelibrary\dto\CoordinatesDTO.java
-D:\Workspace\OpenclassroomsProjects\TheLibrary\TheLibraryGroup\TheLibrary-backend\microservice-loan\entity\src\main\java\org\thibaut\thelibrary\dto\LoanDTO.java
-D:\Workspace\OpenclassroomsProjects\TheLibrary\TheLibraryGroup\TheLibrary-backend\microservice-loan\entity\src\main\java\org\thibaut\thelibrary\dto\BookDTO.java
-D:\Workspace\OpenclassroomsProjects\TheLibrary\TheLibraryGroup\TheLibrary-backend\microservice-loan\entity\src\main\java\org\thibaut\thelibrary\entity\LoanEntity.java
-D:\Workspace\OpenclassroomsProjects\TheLibrary\TheLibraryGroup\TheLibrary-backend\microservice-loan\entity\src\main\java\org\thibaut\thelibrary\dto\LibraryDTO.java
-D:\Workspace\OpenclassroomsProjects\TheLibrary\TheLibraryGroup\TheLibrary-backend\microservice-loan\entity\src\main\java\org\thibaut\thelibrary\dto\AuthorDTO.java
-D:\Workspace\OpenclassroomsProjects\TheLibrary\TheLibraryGroup\TheLibrary-backend\microservice-loan\entity\src\main\java\org\thibaut\thelibrary\dto\CategoryDTO.java
-D:\Workspace\OpenclassroomsProjects\TheLibrary\TheLibraryGroup\TheLibrary-backend\microservice-loan\entity\src\main\java\org\thibaut\thelibrary\dto\EditorDTO.java
+/media/jmilton/Data/Workspace/OpenclassroomsProjects/TheLibrary/TheLibraryGroup/microservice-loan/entity/src/main/java/org/thibaut/thelibrary/entity/LoanEntity.java
+/media/jmilton/Data/Workspace/OpenclassroomsProjects/TheLibrary/TheLibraryGroup/microservice-loan/entity/src/main/java/org/thibaut/thelibrary/entity/projection/LoanProjection.java
+/media/jmilton/Data/Workspace/OpenclassroomsProjects/TheLibrary/TheLibraryGroup/microservice-loan/entity/src/main/java/org/thibaut/thelibrary/entity/BookEntity.java
+/media/jmilton/Data/Workspace/OpenclassroomsProjects/TheLibrary/TheLibraryGroup/microservice-loan/entity/src/main/java/org/thibaut/thelibrary/entity/UserEntity.java

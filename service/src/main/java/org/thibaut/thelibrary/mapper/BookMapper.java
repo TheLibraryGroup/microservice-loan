@@ -8,10 +8,8 @@ import org.thibaut.thelibrary.entity.BookEntity;
 import java.util.List;
 
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface BookMapper {
-
-	BookMapper INSTANCE = Mappers.getMapper( BookMapper.class );
 
 //	@Mappings({
 //			@Mapping(target="id", source="id"),

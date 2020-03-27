@@ -3,6 +3,7 @@ package org.thibaut.thelibrary.mapper;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
+import org.springframework.stereotype.Component;
 import org.thibaut.thelibrary.dto.BookDTO;
 import org.thibaut.thelibrary.dto.BookDTO.BookDTOBuilder;
 import org.thibaut.thelibrary.dto.LoanDTO;
@@ -14,9 +15,10 @@ import org.thibaut.thelibrary.entity.LoanEntity.LoanEntityBuilder;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-02-21T09:39:37+0100",
-    comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.5 (JetBrains s.r.o)"
+    date = "2020-03-27T05:42:41+0100",
+    comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.6 (Ubuntu)"
 )
+@Component
 public class LoanMapperImpl implements LoanMapper {
 
     @Override
@@ -29,9 +31,9 @@ public class LoanMapperImpl implements LoanMapper {
 
         loanDTO.id( loanEntity.getId() );
         loanDTO.startDate( loanEntity.getStartDate() );
+        loanDTO.durationInDay( loanEntity.getDurationInDay() );
+        loanDTO.extended( loanEntity.getExtended() );
         loanDTO.returned( loanEntity.isReturned() );
-        loanDTO.initialEndDate( loanEntity.getInitialEndDate() );
-        loanDTO.extendedEndDate( loanEntity.getExtendedEndDate() );
         loanDTO.bookId( loanEntity.getBookId() );
         loanDTO.userId( loanEntity.getUserId() );
         loanDTO.book( bookEntityToBookDTO( loanEntity.getBook() ) );
@@ -63,9 +65,9 @@ public class LoanMapperImpl implements LoanMapper {
 
         loanEntity.id( loanDTO.getId() );
         loanEntity.startDate( loanDTO.getStartDate() );
+        loanEntity.durationInDay( loanDTO.getDurationInDay() );
+        loanEntity.extended( loanDTO.getExtended() );
         loanEntity.returned( loanDTO.isReturned() );
-        loanEntity.initialEndDate( loanDTO.getInitialEndDate() );
-        loanEntity.extendedEndDate( loanDTO.getExtendedEndDate() );
         loanEntity.bookId( loanDTO.getBookId() );
         loanEntity.book( bookDTOToBookEntity( loanDTO.getBook() ) );
         loanEntity.userId( loanDTO.getUserId() );

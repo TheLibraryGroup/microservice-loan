@@ -3,6 +3,7 @@ package org.thibaut.thelibrary.mapper;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
+import org.springframework.stereotype.Component;
 import org.thibaut.thelibrary.dto.BookDTO;
 import org.thibaut.thelibrary.dto.BookDTO.BookDTOBuilder;
 import org.thibaut.thelibrary.entity.BookEntity;
@@ -10,9 +11,10 @@ import org.thibaut.thelibrary.entity.BookEntity.BookEntityBuilder;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-02-21T09:39:37+0100",
-    comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.5 (JetBrains s.r.o)"
+    date = "2020-03-27T05:42:41+0100",
+    comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.6 (Ubuntu)"
 )
+@Component
 public class BookMapperImpl implements BookMapper {
 
     @Override

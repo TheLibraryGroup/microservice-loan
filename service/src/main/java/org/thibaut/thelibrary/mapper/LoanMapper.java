@@ -8,10 +8,8 @@ import org.thibaut.thelibrary.entity.LoanEntity;
 import java.util.List;
 
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface LoanMapper {
-
-	LoanMapper INSTANCE = Mappers.getMapper( LoanMapper.class );
 
 	LoanDTO toDTO( LoanEntity loanEntity );
 

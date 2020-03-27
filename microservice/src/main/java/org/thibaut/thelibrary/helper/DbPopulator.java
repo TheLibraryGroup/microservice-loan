@@ -1,11 +1,10 @@
 package org.thibaut.thelibrary.helper;
 
-import lombok.AllArgsConstructor;
 import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.stereotype.Component;
-import org.thibaut.thelibrary.service.BookService;
 import org.thibaut.thelibrary.entity.LoanEntity;
 import org.thibaut.thelibrary.restrepository.LoanRestRepository;
 
@@ -13,18 +12,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@AllArgsConstructor
 public class DbPopulator implements CommandLineRunner {
 
+	@Value( "${loan-duration}" )
+	private String loanDuration;
 
 	private LoanRestRepository loanRepository;
-	private BookService bookService;
+
 	private RepositoryRestConfiguration restConfiguration;
+
+	public DbPopulator( LoanRestRepository loanRepository, RepositoryRestConfiguration restConfiguration ) {
+		this.loanRepository = loanRepository;
+		this.restConfiguration = restConfiguration;
+	}
+
 
 	@Override
 	public void run( String... args ) throws Exception {
 		restConfiguration.exposeIdsFor( LoanEntity.class );
-		deleteAllThenPopulate( );
+//		deleteAllThenPopulate( );
 
 	}
 
@@ -35,7 +41,6 @@ public class DbPopulator implements CommandLineRunner {
 
 		this.loanRepository.deleteAll( );
 
-		bookService.findAll();
 		//-----POPULATE LOAN
 
 		List< LoanEntity > loanEntityList = new ArrayList<>( );
@@ -44,7 +49,16 @@ public class DbPopulator implements CommandLineRunner {
 			loanEntityList.add( LoanEntity.builder( )
 										.userId( 1L )
 					                    .startDate( DateTime.now( ) )
-					                    .bookId( 8L )
+										.durationInDay( Integer.valueOf( loanDuration ) )
+					                    .bookId( 1L )
+					                    .build( ) );
+		}
+		for ( int i = 0; i < 10; i++ ) {
+			loanEntityList.add( LoanEntity.builder( )
+					                    .userId( 1L )
+					                    .startDate( DateTime.now().minusMonths( 2 ) )
+					                    .durationInDay( Integer.valueOf( loanDuration ) )
+					                    .bookId( 2L )
 					                    .build( ) );
 		}
 

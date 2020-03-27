@@ -3,6 +3,8 @@ package org.thibaut.thelibrary.utils;
 
 import org.thibaut.thelibrary.exception.ResourceNotFoundException;
 
+import java.util.List;
+
 /**
  * Simple static methods to be called at the start of your own methods to verify correct arguments and state. If the Precondition fails, an HttpStatus code is thrown
  */
@@ -43,5 +45,12 @@ public final class RestPreconditions {
 
         return resource;
     }
+
+    public static <T> List<T> checkNotEmpty(final List<T> listToCheck){
+    	if(listToCheck.isEmpty()){
+    		throw new IllegalArgumentException();
+	    }
+    	return listToCheck;
+	}
 
 }

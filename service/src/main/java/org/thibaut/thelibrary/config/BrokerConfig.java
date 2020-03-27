@@ -2,7 +2,9 @@ package org.thibaut.thelibrary.config;
 
 public final class BrokerConfig {
 
-	public static final String TOPIC_EXCHANGE_NAME = "spring-boot-exchange";
+	public static final String TOPIC_EXCHANGE_NAME = "thelibrary-exchange";
 
-	static final String QUEUE_NAME = "spring-boot";
+	public static final String QUEUE_LOAN_CONFIRMATION = "mail-loan-confirmation";
+
+	public static final String ROUTING_KEY = "thelibrary";
 }
