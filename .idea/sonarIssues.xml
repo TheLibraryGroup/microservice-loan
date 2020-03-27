@@ -1148,6 +1148,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/service/BookFeignClientFallbackFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/service/BookService.java">
           <value>
             <set />
