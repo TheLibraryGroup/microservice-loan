@@ -21,9 +21,9 @@
 	</parent>
 
 	<groupId>org.thibaut.thelibrary</groupId>
-	<artifactId>thelibrary-ms-loan</artifactId>
+	<artifactId>loan-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>thelibrary-ms-loan</name>
+	<name>loan-service</name>
 	<description>A microservice to manage the library's loans</description>
 
 	<properties>
@@ -58,6 +58,9 @@
 		<spring-security-oauth2.version>2.4.0.RELEASE</spring-security-oauth2.version>
 		<logstash-logback-encoder.version>5.3</logstash-logback-encoder.version>
 		<logback-core.version>1.2.3</logback-core.version>
+		<usertype.extended.version>5.0.0.GA</usertype.extended.version>
+		<usertype.core.version>7.0.0.CR1</usertype.core.version>
+		<spring-cloud-starter-hystrix.version>1.4.7.RELEASE</spring-cloud-starter-hystrix.version>
 	</properties>
 
 	<dependencyManagement>
@@ -87,73 +90,54 @@
 				<artifactId>mapstruct</artifactId>
 				<version>${mapstruct.version}</version>
 			</dependency>
+
+			<!--************************************************-->
+			<!--______________________JODA______________________-->
 			<dependency>
 				<groupId>org.jadira.usertype</groupId>
 				<artifactId>usertype.extended</artifactId>
-				<version>5.0.0.GA</version>
+				<version>${usertype.extended.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.jadira.usertype/usertype.core -->
 			<dependency>
 				<groupId>org.jadira.usertype</groupId>
 				<artifactId>usertype.core</artifactId>
-				<version>7.0.0.CR1</version>
+				<version>${usertype.core.version}</version>
 			</dependency>
 
-			<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+			<!--***************************************************-->
+			<!--______________________JACKSON______________________-->
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-core</artifactId>
 				<version>${jackson.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
 				<version>${jackson.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-joda -->
 			<dependency>
 				<groupId>com.fasterxml.jackson.datatype</groupId>
 				<artifactId>jackson-datatype-joda</artifactId>
 				<version>${jackson.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.json</groupId>
+				<artifactId>json</artifactId>
+				<version>${json.version}</version>
+			</dependency>
 
-
-			<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
 			<dependency>
 				<groupId>org.springdoc</groupId>
 				<artifactId>springdoc-openapi-ui</artifactId>
 				<version>${springdoc-openapi-ui.version}</version>
 			</dependency>
 
-			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-actuator -->
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-actuator</artifactId>
 				<version>${springboot-version}</version>
 			</dependency>
-
-<!--			<dependency>-->
-<!--				<groupId>org.springframework.cloud</groupId>-->
-<!--				<artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>-->
-<!--				<version>${spring-cloud-starter-hystrix-dashboard.version}</version>-->
-<!--			</dependency>-->
-
-			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-hystrix -->
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-starter-hystrix</artifactId>
-				<version>1.4.7.RELEASE</version>
-			</dependency>
-
-
-			<!--			&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-security &ndash;&gt;-->
-<!--			<dependency>-->
-<!--				<groupId>org.springframework.cloud</groupId>-->
-<!--				<artifactId>spring-cloud-security</artifactId>-->
-<!--				<version>2.2.1.RELEASE</version>-->
-<!--			</dependency>-->
-
 
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -163,19 +147,16 @@
 				<scope>import</scope>
 			</dependency>
 
-			<dependency>
-				<groupId>org.json</groupId>
-				<artifactId>json</artifactId>
-				<version>${json.version}</version>
-			</dependency>
-
-			<!-- https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2 -->
+			<!--****************************************************-->
+			<!--______________________SECURITY______________________-->
 			<dependency>
 				<groupId>org.springframework.security.oauth</groupId>
 				<artifactId>spring-security-oauth2</artifactId>
 				<version>${spring-security-oauth2.version}</version>
 			</dependency>
 
+			<!--******************************************************-->
+			<!--______________________MONITORING______________________-->
 			<dependency>
 				<groupId>net.logstash.logback</groupId>
 				<artifactId>logstash-logback-encoder</artifactId>
@@ -186,7 +167,14 @@
 				<artifactId>logback-core</artifactId>
 				<version>${logback-core.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-hystrix</artifactId>
+				<version>${spring-cloud-starter-hystrix.version}</version>
+			</dependency>
 
+			<!--************************************************-->
+			<!--______________________TEST______________________-->
 			<!-- exclude junit 4 -->
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
