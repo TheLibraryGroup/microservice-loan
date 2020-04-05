@@ -2,10 +2,8 @@ package org.thibaut.thelibrary.service;
 
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.hateoas.PagedModel;
 import org.springframework.stereotype.Component;
 import org.thibaut.thelibrary.dto.BookDTO;
-import org.thibaut.thelibrary.entity.BookEntity;
 
 @Component
 @Slf4j

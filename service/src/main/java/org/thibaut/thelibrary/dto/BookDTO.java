@@ -1,9 +1,6 @@
 package org.thibaut.thelibrary.dto;
 
 import lombok.*;
-import org.joda.time.DateTime;
-
-import java.util.List;
 
 @Getter
 @Setter

@@ -1,15 +1,19 @@
+server:
+    port: ${SERVER-PORT}
+    servlet:
+        context-path: /api/
 
 spring:
     application:
         name: thelibrary-ms-loan
     profiles:
-        active: local
+        active: dev
     cloud:
         config:
-            uri: http://localhost:8888
-            profile: local, prod
-            username: confUser
-            password: confPassword
+            profile: dev
+            uri: ${SPRING-CLOUD-CONFIG-URI}
+            username: ${SPRING-CLOUD-CONFIG-USERNAME}
+            password: ${SPRING-CLOUD-CONFIG-PWD}
         discovery:
             enabled: true
     data:
@@ -27,17 +31,28 @@ spring:
         oauth2:
             resourceserver:
                 jwt:
-                    issuer-uri: http://localhost:8080/auth/realms/TheLibrary
+                    issuer-uri: https://www.auth.thelibrary.mypoc.online/auth/realms/TheLibrary
+
+
 eureka:
+    instance:
+        leaseRenewalIntervalInSeconds: 10
+        health-check-url-path: /actuator/health
+        metadata-map:
+            startup: ${random.int}    #needed to trigger info and endpoint update after restart
     client:
+        registryFetchIntervalSeconds: 5
         serviceUrl:
-            defaultZone: http://discUser:discPassword@localhost:8761/eureka/
-#eureka:
-#    client:
-#        serviceUrl:
-#            defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-#    instance:
-#        preferIpAddress: true
+            defaultZone: ${EUREKA-CLIENT-SERVICEURL-DEFAULTZONE}
+
+management:
+    endpoint:
+        health:
+            show-details: always
+    endpoints:
+        web:
+            exposure:
+                include: "*"
 
 feign:
     hystrix:
@@ -45,16 +60,7 @@ feign:
 hystrix:
     shareSecurityContext: true
 
-management:
-    endpoints:
-        web:
-            exposure:
-                include: "*"
 
-server:
-    port: 8050
-    servlet:
-        context-path: /api/
 
 loan-duration: 30
 

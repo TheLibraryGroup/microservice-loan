@@ -3,7 +3,6 @@ package org.thibaut.thelibrary.entity;
 import lombok.*;
 import org.joda.time.DateTime;
 
-import javax.persistence.*;
 import java.util.List;
 
 @Getter

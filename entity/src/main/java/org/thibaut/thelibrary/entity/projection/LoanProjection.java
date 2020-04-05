@@ -4,8 +4,6 @@ import org.joda.time.DateTime;
 import org.springframework.data.rest.core.config.Projection;
 import org.thibaut.thelibrary.entity.LoanEntity;
 
-import java.util.List;
-
 @Projection(name = "loanProjection", types = LoanEntity.class )
 public interface LoanProjection {
 

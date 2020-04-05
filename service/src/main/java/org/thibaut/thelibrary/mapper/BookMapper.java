@@ -1,7 +1,6 @@
 package org.thibaut.thelibrary.mapper;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 import org.thibaut.thelibrary.dto.BookDTO;
 import org.thibaut.thelibrary.entity.BookEntity;
 

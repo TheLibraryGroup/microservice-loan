@@ -2,7 +2,6 @@ package org.thibaut.thelibrary.entity;
 
 import lombok.*;
 import org.joda.time.DateTime;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 

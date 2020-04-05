@@ -1,21 +1,25 @@
+server:
+    port: ${SERVER_PORT}
+    servlet:
+        context-path: /api/
 
 spring:
     application:
         name: thelibrary-ms-loan
     profiles:
-        active: local
+        active: dev
     cloud:
         config:
-            uri: http://localhost:8888
-            profile: local, prod
-            username: confUser
-            password: confPassword
+            profile: dev
+            uri: ${SPRING_CLOUD_CONFIG_URI}
+            username: ${SPRING_CLOUD_CONFIG_USERNAME}
+            password: ${SPRING_CLOUD_CONFIG_PWD}
         discovery:
             enabled: true
-    data:
-        rest:
-            return-body-on-create: true
-            return-body-on-update: true
+#    data:
+#        rest:
+#            return-body-on-create: true
+#            return-body-on-update: true
     jpa:
         properties:
             jadira.usertype.autoRegisterUserTypes: true
@@ -27,34 +31,45 @@ spring:
         oauth2:
             resourceserver:
                 jwt:
-                    issuer-uri: http://localhost:8080/auth/realms/TheLibrary
+                    issuer-uri: https://www.auth.thelibrary.mypoc.online/auth/realms/TheLibrary
+
+
 eureka:
+    instance:
+        leaseRenewalIntervalInSeconds: 10
+        leaseExpirationDurationInSeconds: 2
+        health-check-url-path: /actuator/health
+        metadata-map:
+            startup: ${random.int}    #needed to trigger info and endpoint update after restart
     client:
+        registryFetchIntervalSeconds: 5
         serviceUrl:
-            defaultZone: http://discUser:discPassword@localhost:8761/eureka/
-#eureka:
-#    client:
-#        serviceUrl:
-#            defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-#    instance:
-#        preferIpAddress: true
+            defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
+        healthcheck:
+            enabled: true
+
+management:
+    endpoint:
+        health:
+            show-details: always
+        hystrix:
+            stream:
+                enabled: true
+    endpoints:
+        web:
+            exposure:
+                include: hystrix.stream, health, info
 
 feign:
     hystrix:
         enabled: true
 hystrix:
     shareSecurityContext: true
+    metrics:
+        polling-interval-ms: 3000
+        enabled: true
 
-management:
-    endpoints:
-        web:
-            exposure:
-                include: "*"
 
-server:
-    port: 8050
-    servlet:
-        context-path: /api/
 
 loan-duration: 30
 
