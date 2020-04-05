@@ -1,7 +1,0 @@
-org/thibaut/thelibrary/entity/LoanEntity.class
-org/thibaut/thelibrary/entity/BookEntity$BookEntityBuilder.class
-org/thibaut/thelibrary/entity/UserEntity$UserEntityBuilder.class
-org/thibaut/thelibrary/entity/LoanEntity$LoanEntityBuilder.class
-org/thibaut/thelibrary/entity/BookEntity.class
-org/thibaut/thelibrary/entity/projection/LoanProjection.class
-org/thibaut/thelibrary/entity/UserEntity.class
