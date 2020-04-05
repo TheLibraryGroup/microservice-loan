@@ -1,44 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e180735d-0237-459c-8001-14a9ab859752" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3012de2a-a03b-4638-b3bc-4f4b4f2bff9f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3012de2a-a03b-4638-b3bc-4f4b4f2bff9f.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3012de2a-a03b-4638-b3bc-4f4b4f2bff9f/storage_v2/_src_/database/thelibrary_loan.5bRNLQ/schema/local.a98lBg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3012de2a-a03b-4638-b3bc-4f4b4f2bff9f/storage_v2/_src_/database/thelibrary_loan.5bRNLQ/schema/local.a98lBg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarIssues.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarIssues.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/src/main/java/org/thibaut/thelibrary/entity/BookEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/entity/src/main/java/org/thibaut/thelibrary/entity/BookEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/src/main/java/org/thibaut/thelibrary/entity/LoanEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/entity/src/main/java/org/thibaut/thelibrary/entity/LoanEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/src/main/java/org/thibaut/thelibrary/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/entity/src/main/java/org/thibaut/thelibrary/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/src/main/java/org/thibaut/thelibrary/entity/projection/LoanProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/entity/src/main/java/org/thibaut/thelibrary/entity/projection/LoanProjection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/target/classes/org/thibaut/thelibrary/entity/BookEntity$BookEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/entity/target/classes/org/thibaut/thelibrary/entity/BookEntity$BookEntityBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/target/classes/org/thibaut/thelibrary/entity/BookEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/entity/target/classes/org/thibaut/thelibrary/entity/BookEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/target/classes/org/thibaut/thelibrary/entity/LoanEntity$LoanEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/entity/target/classes/org/thibaut/thelibrary/entity/LoanEntity$LoanEntityBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/target/classes/org/thibaut/thelibrary/entity/LoanEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/entity/target/classes/org/thibaut/thelibrary/entity/LoanEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/target/classes/org/thibaut/thelibrary/entity/UserEntity$UserEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/entity/target/classes/org/thibaut/thelibrary/entity/UserEntity$UserEntityBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/target/classes/org/thibaut/thelibrary/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/entity/target/classes/org/thibaut/thelibrary/entity/UserEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice/src/main/java/org/thibaut/thelibrary/LoanApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice/src/main/java/org/thibaut/thelibrary/LoanApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice/src/main/java/org/thibaut/thelibrary/config/FeignClientInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice/src/main/java/org/thibaut/thelibrary/config/FeignClientInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice/src/main/java/org/thibaut/thelibrary/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice/src/main/java/org/thibaut/thelibrary/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice/src/main/java/org/thibaut/thelibrary/controller/LoanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice/src/main/java/org/thibaut/thelibrary/controller/LoanController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice/target/classes/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice/target/classes/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice/target/classes/org/thibaut/thelibrary/LoanApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice/target/classes/org/thibaut/thelibrary/LoanApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/src/main/java/org/thibaut/thelibrary/repository/LoanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/repository/src/main/java/org/thibaut/thelibrary/repository/LoanRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/src/main/java/org/thibaut/thelibrary/restrepository/LoanRestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/repository/src/main/java/org/thibaut/thelibrary/restrepository/LoanRestRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/dto/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/dto/BookDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/dto/LoanDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/dto/LoanDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/mapper/BookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/mapper/BookMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/mapper/LoanMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/mapper/LoanMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/publisher/LoanMailConfirmationPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/publisher/LoanMailConfirmationPublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/service/BookFeignClientFallbackFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/service/BookFeignClientFallbackFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/service/LoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/service/LoanService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/service/LoanServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/org/thibaut/thelibrary/service/LoanServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/org/thibaut/thelibrary/service/LoanServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/org/thibaut/thelibrary/service/LoanServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/generated-sources/annotations/org/thibaut/thelibrary/mapper/BookMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/generated-sources/annotations/org/thibaut/thelibrary/mapper/BookMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/generated-sources/annotations/org/thibaut/thelibrary/mapper/LoanMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/generated-sources/annotations/org/thibaut/thelibrary/mapper/LoanMapperImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="e180735d-0237-459c-8001-14a9ab859752" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -287,7 +250,7 @@
       <workItem from="1585832385935" duration="593000" />
       <workItem from="1585833799245" duration="1441000" />
       <workItem from="1585856123470" duration="47000" />
-      <workItem from="1586096810406" duration="158000" />
+      <workItem from="1586096810406" duration="487000" />
     </task>
     <task id="LOCAL-00001" summary="technical&lt;all&gt;&#10;add rabbitMQ">
       <created>1582291940135</created>
@@ -310,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585293932302</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="seems doesn't use gitignore">
+      <created>1586097259170</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586097259170</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +290,8 @@
     <MESSAGE value="technical&lt;all&gt;&#10;add rabbitMQ" />
     <MESSAGE value="technical&lt;microservice-security&gt;&#10;add keycloak security and FeignClientInterceptor for back to back token propagation" />
     <MESSAGE value="technical&lt;service&gt;&#10;add openFeign fallback factory" />
-    <option name="LAST_COMMIT_MESSAGE" value="technical&lt;service&gt;&#10;add openFeign fallback factory" />
+    <MESSAGE value="seems doesn't use gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="seems doesn't use gitignore" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1064" y="212" width="800" height="684" key="#Assign_Data_Sources" timestamp="1582559358553">
@@ -399,10 +370,10 @@
     <state x="1681" y="403" key="#xdebugger.evaluate/0.0.2560.1400/4480.684.1920.1040/2560.0.1920.1040@0.0.2560.1400" timestamp="1581700117725" />
     <state x="5224" y="522" width="781" height="520" key="#xdebugger.evaluate/1920.0.2560.1440/0.360.1920.1080/4480.0.1920.1080@4480.0.1920.1080" timestamp="1585291698543" />
     <state x="1285" y="330" key="#xdebugger.evaluate/70.27.1850.1053@70.27.1850.1053" timestamp="1582790221552" />
-    <state x="1920" y="128" width="2560" height="1223" key="CommitChangelistDialog2" timestamp="1586097143318">
+    <state x="1920" y="128" width="2560" height="1223" key="CommitChangelistDialog2" timestamp="1586097258003">
       <screen x="0" y="34" width="6400" height="1406" />
     </state>
-    <state x="1920" y="128" width="2560" height="1223" key="CommitChangelistDialog2/0.34.6400.1406@0.34.6400.1406" timestamp="1586097143318" />
+    <state x="1920" y="128" width="2560" height="1223" key="CommitChangelistDialog2/0.34.6400.1406@0.34.6400.1406" timestamp="1586097258003" />
     <state x="4480" y="72" width="1408" height="939" key="CommitChangelistDialog2/1920.0.2560.1440/0.360.1920.1080/4480.0.1920.1080@4480.0.1920.1080" timestamp="1585293931849" />
     <state x="70" y="97" width="1392" height="919" key="CommitChangelistDialog2/70.27.1850.1053@70.27.1850.1053" timestamp="1582291930062" />
     <state x="4480" y="495" width="515" height="504" key="EnvironmentVariablesDialog" timestamp="1586096964886">
@@ -546,9 +517,10 @@
     <state x="836" y="109" key="SettingsEditor/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1581664725781" />
     <state x="836" y="109" key="SettingsEditor/0.0.2560.1400/4480.684.1920.1040/2560.0.1920.1040@0.0.2560.1400" timestamp="1581697347227" />
     <state x="674" y="109" width="1024" height="852" key="SettingsEditor/70.27.1850.1053@70.27.1850.1053" timestamp="1582532086770" />
-    <state x="4715" y="269" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1585293938429">
-      <screen x="4480" y="0" width="1920" height="1080" />
+    <state x="1920" y="384" width="2560" height="697" key="Vcs.Push.Dialog.v2" timestamp="1586097295985">
+      <screen x="0" y="34" width="6400" height="1406" />
     </state>
+    <state x="1920" y="384" width="2560" height="697" key="Vcs.Push.Dialog.v2/0.34.6400.1406@0.34.6400.1406" timestamp="1586097295985" />
     <state x="4715" y="269" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.0.2560.1440/0.360.1920.1080/4480.0.1920.1080@4480.0.1920.1080" timestamp="1585293938429" />
     <state x="296" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/70.27.1850.1053@70.27.1850.1053" timestamp="1582291943304" />
     <state width="960" height="540" key="XDebugger.FullValuePopup" timestamp="1585286093498">
