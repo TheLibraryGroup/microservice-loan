@@ -5,7 +5,7 @@ server:
 
 spring:
     application:
-        name: thelibrary-ms-loan
+        name: loan
     profiles:
         active: dev
     cloud:
@@ -63,13 +63,12 @@ management:
 feign:
     hystrix:
         enabled: true
+
 hystrix:
     shareSecurityContext: true
     metrics:
         polling-interval-ms: 3000
         enabled: true
-
-
 
 loan-duration: 30
 

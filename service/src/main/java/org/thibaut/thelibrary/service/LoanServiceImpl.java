@@ -28,16 +28,6 @@ public class LoanServiceImpl implements LoanService {
 	private final LoanMailConfirmationPublisher loanMailConfirmationPublisher;
 	private final LoanMapper loanMapper;
 
-//	public LoanServiceImpl(
-//			LoanRestRepository loanRepository,
-//			BookFeignClient bookFeignClient,
-//			LoanMailConfirmationPublisher loanMailConfirmationPublisher, LoanMapper loanMapper ) {
-//		this.loanRepository = loanRepository;
-//		this.bookFeignClient = bookFeignClient;
-//		this.loanMailConfirmationPublisher = loanMailConfirmationPublisher;
-//		this.loanMapper = loanMapper;
-//	}
-
 	@Value("${loan-duration}")
 	private Integer loanDurationInDay;
 

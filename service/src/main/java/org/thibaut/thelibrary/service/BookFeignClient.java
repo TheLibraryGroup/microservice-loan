@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.thibaut.thelibrary.dto.BookDTO;
 
-@FeignClient(name = "THELIBRARY-MS-BOOK", fallbackFactory = BookFeignClientFallbackFactory.class)
+@FeignClient(name = "BOOK-SERVICE", fallbackFactory = BookFeignClientFallbackFactory.class)
 public interface BookFeignClient {
 
 	String AUTH_TOKEN = "Authorization";

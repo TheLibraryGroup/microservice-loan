@@ -56,6 +56,8 @@
 		<keycloak.version>8.0.1</keycloak.version>
 
 		<spring-security-oauth2.version>2.4.0.RELEASE</spring-security-oauth2.version>
+		<logstash-logback-encoder.version>5.3</logstash-logback-encoder.version>
+		<logback-core.version>1.2.3</logback-core.version>
 	</properties>
 
 	<dependencyManagement>
@@ -131,7 +133,21 @@
 				<version>${springboot-version}</version>
 			</dependency>
 
-<!--			&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-security &ndash;&gt;-->
+<!--			<dependency>-->
+<!--				<groupId>org.springframework.cloud</groupId>-->
+<!--				<artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>-->
+<!--				<version>${spring-cloud-starter-hystrix-dashboard.version}</version>-->
+<!--			</dependency>-->
+
+			<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-hystrix -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-hystrix</artifactId>
+				<version>1.4.7.RELEASE</version>
+			</dependency>
+
+
+			<!--			&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-security &ndash;&gt;-->
 <!--			<dependency>-->
 <!--				<groupId>org.springframework.cloud</groupId>-->
 <!--				<artifactId>spring-cloud-security</artifactId>-->
@@ -160,6 +176,16 @@
 				<version>${spring-security-oauth2.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>net.logstash.logback</groupId>
+				<artifactId>logstash-logback-encoder</artifactId>
+				<version>${logstash-logback-encoder.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-core</artifactId>
+				<version>${logback-core.version}</version>
+			</dependency>
 
 			<!-- exclude junit 4 -->
 			<dependency>
@@ -207,32 +233,6 @@
 	<build>
 		<pluginManagement>
 			<plugins>
-
-				<plugin>
-					<artifactId>maven-assembly-plugin</artifactId>
-					<!--				<version>3.2.0</version>-->
-					<configuration>
-						<archive>
-							<manifest>
-								<addClasspath>true</addClasspath>
-								<mainClass>${start-class}</mainClass>
-							</manifest>
-						</archive>
-						<descriptorRefs>
-							<descriptorRef>jar-with-dependencies</descriptorRef>
-						</descriptorRefs>
-					</configuration>
-					<executions>
-						<execution>
-							<id>assemble-all</id>
-							<phase>package</phase>
-							<goals>
-								<goal>single</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>

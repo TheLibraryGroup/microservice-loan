@@ -1,5 +1,7 @@
 package org.thibaut.thelibrary.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.context.ApplicationEventPublisher;
@@ -8,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.thibaut.thelibrary.dto.BookDTO;
 import org.thibaut.thelibrary.dto.LoanDTO;
 import org.thibaut.thelibrary.exception.ResourceNotFoundException;
 import org.thibaut.thelibrary.service.BookFeignClient;
@@ -29,8 +32,12 @@ public class LoanController {
 	private ApplicationEventPublisher eventPublisher;
 
 
-	@GetMapping("/fullLoan/{id}")
+	@GetMapping("/loan-with-book/{id}")
 	@PreAuthorize("hasAnyRole('admin', 'user')")
+	@HystrixCommand(fallbackMethod = "defaultLoan",
+			commandProperties = {
+					@HystrixProperty(name="execution.isolation.strategy", value="SEMAPHORE")
+			})
 	public LoanDTO getLoan( @PathVariable("id") Long id, HttpServletResponse response){
 		try {
 			final LoanDTO loanDTO = RestPreconditions.checkFound( loanService.findById( id ) );
@@ -42,9 +49,12 @@ public class LoanController {
 		}
 	}
 
+	public LoanDTO defaultLoan( @PathVariable("id") @NonNull Long id, HttpServletResponse response){
+		return LoanDTO.builder().email( "DEFAULTLOAN" ).build();
+	}
 
 	@GetMapping("/loans")
-	@PreAuthorize("hasAnyRole('admin', 'user')")
+	@PreAuthorize("hasAnyRole('admin')")
 	public List< LoanDTO > findAll( HttpServletResponse response){
 		try {
 			final List<LoanDTO> loanDTOList = RestPreconditions.checkFound( loanService.findAll() );
