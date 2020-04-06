@@ -33,7 +33,6 @@ spring:
                 jwt:
                     issuer-uri: https://www.auth.thelibrary.mypoc.online/auth/realms/TheLibrary
 
-
 eureka:
     instance:
         leaseRenewalIntervalInSeconds: 10

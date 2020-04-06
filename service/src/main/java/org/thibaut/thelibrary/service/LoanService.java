@@ -6,7 +6,7 @@ import org.thibaut.thelibrary.dto.LoanDTO;
 import java.util.List;
 
 public interface LoanService {
-	LoanDTO findById( Long id );
+	LoanDTO findByIdWithBook( Long id );
 
 	List< LoanDTO > findAll( );
 

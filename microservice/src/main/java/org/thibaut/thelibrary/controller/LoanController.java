@@ -4,13 +4,15 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import org.thibaut.thelibrary.dto.BookDTO;
 import org.thibaut.thelibrary.dto.LoanDTO;
 import org.thibaut.thelibrary.exception.ResourceNotFoundException;
 import org.thibaut.thelibrary.service.BookFeignClient;
@@ -23,13 +25,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-@CrossOrigin("*")
 @AllArgsConstructor
 public class LoanController {
 
 	private BookFeignClient bookFeignClient;
 	private LoanService loanService;
 	private ApplicationEventPublisher eventPublisher;
+	private static final Logger LOGGER = LoggerFactory.getLogger(LoanController.class);
 
 
 	@GetMapping("/loan-with-book/{id}")
@@ -38,9 +40,10 @@ public class LoanController {
 			commandProperties = {
 					@HystrixProperty(name="execution.isolation.strategy", value="SEMAPHORE")
 			})
-	public LoanDTO getLoan( @PathVariable("id") Long id, HttpServletResponse response){
+	public LoanDTO findLoanByIdWithBook( @PathVariable("id") Long id, HttpServletResponse response){
+		LOGGER.info( "CLASS < LoanController > - Method < findLoanByIdWithBook > - param < " + id + " >"  );
 		try {
-			final LoanDTO loanDTO = RestPreconditions.checkFound( loanService.findById( id ) );
+			final LoanDTO loanDTO = RestPreconditions.checkFound( loanService.findByIdWithBook( id ) );
 			eventPublisher.publishEvent( new SingleResourceRetrievedEvent(this, response) );
 			return loanDTO;
 		}

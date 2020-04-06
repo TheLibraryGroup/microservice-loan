@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,8 @@ public class LoanServiceImpl implements LoanService {
 	private final BookFeignClient bookFeignClient;
 	private final LoanMailConfirmationPublisher loanMailConfirmationPublisher;
 	private final LoanMapper loanMapper;
+	private static final Logger LOGGER = LoggerFactory.getLogger(LoanServiceImpl.class);
+
 
 	@Value("${loan-duration}")
 	private Integer loanDurationInDay;
@@ -39,7 +43,8 @@ public class LoanServiceImpl implements LoanService {
 //	}
 
 	@Override
-	public LoanDTO findById( Long id ) {
+	public LoanDTO findByIdWithBook( Long id ) {
+		LOGGER.info( "CLASS < LoanServiceImpl > - Method < findByIdWithBook > - param < " + id + " >"  );
 		final LoanDTO loanDTO = loanMapper.toDTO(
 												loanRepository.findById( id )
 												.orElseThrow( ResourceNotFoundException::new ) );
