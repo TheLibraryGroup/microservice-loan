@@ -98,6 +98,8 @@ buildNumber.properties
 .mtj.tmp/
 
 # Package Files #
+*.iml
+**/*.iml
 *.jar
 *.war
 *.nar

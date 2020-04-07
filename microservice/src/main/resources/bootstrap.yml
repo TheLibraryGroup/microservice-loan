@@ -69,6 +69,19 @@ hystrix:
         polling-interval-ms: 3000
         enabled: true
 
+logging:
+    level:
+        org:
+            hibernate:
+                SQL: DEBUG
+                type:
+                    descriptor:
+                        sql:
+                            BasicBinder: TRACE
+    file:
+        path: .
+        name: ${spring.application.name}.log
+
 loan-duration: 30
 
 
