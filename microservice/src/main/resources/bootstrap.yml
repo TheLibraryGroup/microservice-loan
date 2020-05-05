@@ -32,6 +32,8 @@ spring:
             resourceserver:
                 jwt:
                     issuer-uri: https://www.auth.thelibrary.mypoc.online/auth/realms/TheLibrary
+    zipkin:
+        base-url: ${SPRING_ZIPKIN_URL}
 
 eureka:
     instance:
