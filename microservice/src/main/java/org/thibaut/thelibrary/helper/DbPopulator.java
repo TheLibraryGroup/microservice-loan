@@ -17,11 +17,11 @@ public class DbPopulator implements CommandLineRunner {
 	@Value( "${loan-duration}" )
 	private String loanDuration;
 
-	private LoanRestRepository loanRepository;
+	private final LoanRestRepository loanRepository;
+	private final RepositoryRestConfiguration restConfiguration;
 
-	private RepositoryRestConfiguration restConfiguration;
-
-	public DbPopulator( LoanRestRepository loanRepository, RepositoryRestConfiguration restConfiguration ) {
+	public DbPopulator( LoanRestRepository loanRepository,
+	                    RepositoryRestConfiguration restConfiguration ) {
 		this.loanRepository = loanRepository;
 		this.restConfiguration = restConfiguration;
 	}
@@ -30,7 +30,7 @@ public class DbPopulator implements CommandLineRunner {
 	@Override
 	public void run( String... args ) throws Exception {
 		restConfiguration.exposeIdsFor( LoanEntity.class );
-//		deleteAllThenPopulate( );
+		deleteAllThenPopulate( );
 
 	}
 

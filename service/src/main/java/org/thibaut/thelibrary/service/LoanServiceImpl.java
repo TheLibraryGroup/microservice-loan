@@ -14,6 +14,7 @@ import org.thibaut.thelibrary.dto.BookDTO;
 import org.thibaut.thelibrary.dto.LoanDTO;
 import org.thibaut.thelibrary.dto.SimpleMailMessageDTO;
 import org.thibaut.thelibrary.mapper.LoanMapper;
+import org.thibaut.thelibrary.publisher.LoanMailConfirmationJmsPublisher;
 import org.thibaut.thelibrary.publisher.LoanMailConfirmationPublisher;
 import org.thibaut.thelibrary.restrepository.LoanRestRepository;
 
@@ -27,7 +28,8 @@ public class LoanServiceImpl implements LoanService {
 
 	private final LoanRestRepository loanRepository;
 	private final BookFeignClient bookFeignClient;
-	private final LoanMailConfirmationPublisher loanMailConfirmationPublisher;
+//	private final LoanMailConfirmationPublisher loanMailConfirmationPublisher;
+	private final LoanMailConfirmationJmsPublisher loanMailConfirmationJmsPublisher;
 	private final LoanMapper loanMapper;
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoanServiceImpl.class);
 
@@ -86,8 +88,8 @@ public class LoanServiceImpl implements LoanService {
 			mailMessage.setTo( loanDTO.getEmail( ) );
 			mailMessage.setSubject( "TheLibrary: loan confirmation" );
 			mailMessage.setText( "Dear, please consider this as a loan confirmation of the book '" + bookFeignClient.findById( loanDTO.getBookId() ).getTitle() + "'. You must give it back to TheLibrary for the " + loanDTO.getStartDate().plusDays( loanDTO.getDurationInDay() ).toString( DateTimeFormat.forPattern("d MMMM, yyyy") ) + " at the latest. Please notice that it can be extended once. If so, you can keep the book for extra period of " + loanDTO.getDurationInDay() + " days. We hope you will enjoy this book! Thank you for having visited our library!"  );
-
-			loanMailConfirmationPublisher.publishLoanConfirmation( mailMessage );
+			loanMailConfirmationJmsPublisher.publishLoanConfirmation( mailMessage );
+//			loanMailConfirmationPublisher.publishLoanConfirmation( mailMessage );
 		}
 	}
 

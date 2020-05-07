@@ -28,9 +28,9 @@ import java.util.List;
 @AllArgsConstructor
 public class LoanController {
 
-	private BookFeignClient bookFeignClient;
-	private LoanService loanService;
-	private ApplicationEventPublisher eventPublisher;
+	private final BookFeignClient bookFeignClient;
+	private final LoanService loanService;
+	private final ApplicationEventPublisher eventPublisher;
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoanController.class);
 
 
@@ -74,9 +74,8 @@ public class LoanController {
 	@PreAuthorize("hasAnyRole('admin')")
 	public List< LoanDTO > findAllByReturnedIsFalse( ){
 		try {
-			final List<LoanDTO> loanDTOList = RestPreconditions.checkFound( loanService.findAllByReturnedIsFalse() );
-//			eventPublisher.publishEvent( new SingleResourceRetrievedEvent(this, response) );
-			return loanDTOList;
+			//			eventPublisher.publishEvent( new SingleResourceRetrievedEvent(this, response) );
+			return RestPreconditions.checkFound( loanService.findAllByReturnedIsFalse() );
 		}
 		catch ( ResourceNotFoundException ex ){
 			throw new ResponseStatusException( HttpStatus.NOT_FOUND, "No Loan found", ex );
