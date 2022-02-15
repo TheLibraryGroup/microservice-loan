@@ -24,13 +24,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api",produces = MediaType.APPLICATION_JSON_VALUE)
 @AllArgsConstructor
 public class LoanController {
 
-	private BookFeignClient bookFeignClient;
-	private LoanService loanService;
-	private ApplicationEventPublisher eventPublisher;
+	private final BookFeignClient bookFeignClient;
+	private final LoanService loanService;
+	private final ApplicationEventPublisher eventPublisher;
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoanController.class);
 
 

@@ -30,7 +30,7 @@ public class DbPopulator implements CommandLineRunner {
 	@Override
 	public void run( String... args ) throws Exception {
 		restConfiguration.exposeIdsFor( LoanEntity.class );
-//		deleteAllThenPopulate( );
+		deleteAllThenPopulate( );
 
 	}
 

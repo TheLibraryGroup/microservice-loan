@@ -1,7 +1,7 @@
 server:
     port: ${SERVER_PORT}
-    servlet:
-        context-path: /api/
+#    servlet:
+#        context-path: /api/
 
 spring:
     application:
@@ -16,22 +16,18 @@ spring:
             password: ${SPRING_CLOUD_CONFIG_PWD}
         discovery:
             enabled: true
-#    data:
-#        rest:
-#            return-body-on-create: true
-#            return-body-on-update: true
     jpa:
         properties:
             jadira.usertype.autoRegisterUserTypes: true
     rabbitmq:
-        host: localhost
+        host: mq.mypoc.online
         username: user
         password: user
     security:
         oauth2:
             resourceserver:
                 jwt:
-                    issuer-uri: https://www.auth.thelibrary.mypoc.online/auth/realms/TheLibrary
+                    issuer-uri: https://www.auth.mypoc.online/auth/realms/TheLibrary
     zipkin:
         base-url: ${SPRING_ZIPKIN_URL}
 
@@ -59,14 +55,15 @@ management:
     endpoints:
         web:
             exposure:
-                include: hystrix.stream, health, info
+#                include: hystrix.stream, health, info
+                include: "*"
 
 feign:
     hystrix:
         enabled: true
 
 hystrix:
-    shareSecurityContext: true
+#    shareSecurityContext: true
     metrics:
         polling-interval-ms: 3000
         enabled: true

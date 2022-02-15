@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -20,27 +21,6 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-//	@Bean
-//	public ResourceServerConfigurer resourceServerConfigurer() {
-//		return new ResourceServerConfigurer() {
-//			@Override
-//			public void configure( ResourceServerSecurityConfigurer resources) throws Exception {
-//
-//				//This is used by the oauth2 library as a unique identifier of your microservice.
-//				// It is used to verify that your service is the intended audience of a given JWT access token.
-//				resources.resourceId("users");
-//			}
-//
-//			@Override
-//			public void configure(HttpSecurity http) throws Exception {
-//
-//				//The scopes specified here should begin with your resourceId from above.
-//				http.authorizeRequests()
-//						.antMatchers(HttpMethod.GET, "/api/loans").access("#oauth2.hasScope('users.read')");
-//			}
-//		};
-//	}
-
 	@Bean
 	public RequestInterceptor getUserFeignClientInterceptor() {
 		return new FeignClientInterceptor();
@@ -49,12 +29,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure( HttpSecurity http) throws Exception {
 		// Validate tokens through configured OpenID Provider
-		http.cors().and().oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthenticationConverter());
-//		http.cors().and().authorizeRequests().mvcMatchers("/books").hasRole("admin");
-		// Require authentication for all requests
-//		http.authorizeRequests().anyRequest().authenticated();
-		// Allow showing pages within a frame
-		http.headers().frameOptions().sameOrigin();
+		http
+				.cors()
+				.and().csrf().ignoringAntMatchers( "/actuator/**" )
+				.and().headers().frameOptions().sameOrigin()
+				.and().authorizeRequests().antMatchers( HttpMethod.GET, "/actuator/**").permitAll()
+				.and().oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthenticationConverter());
+//		http.cors().and().oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthenticationConverter());
+////		http.cors().and().authorizeRequests().mvcMatchers("/books").hasRole("admin");
+//		// Require authentication for all requests
+////		http.authorizeRequests().anyRequest().authenticated();
+//		// Allow showing pages within a frame
+//		http.headers().frameOptions().sameOrigin();
 	}
 
 	private JwtAuthenticationConverter jwtAuthenticationConverter() {
