@@ -52,7 +52,7 @@
 
 		<junit-jupiter.version>5.5.2</junit-jupiter.version>
 		<json.version>20190722</json.version>
-		<jackson.version>2.10.2</jackson.version>
+		<jackson.version>2.12.7.1</jackson.version>
 		<keycloak.version>8.0.1</keycloak.version>
 
 		<spring-security-oauth2.version>2.4.0.RELEASE</spring-security-oauth2.version>
