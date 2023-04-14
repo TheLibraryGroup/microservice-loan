@@ -51,7 +51,7 @@
 		<projectlombok.version>1.18.12</projectlombok.version>
 
 		<junit-jupiter.version>5.5.2</junit-jupiter.version>
-		<json.version>20190722</json.version>
+		<json.version>20230227</json.version>
 		<jackson.version>2.10.2</jackson.version>
 		<keycloak.version>8.0.1</keycloak.version>
 
